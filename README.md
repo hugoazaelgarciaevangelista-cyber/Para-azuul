@@ -1,0 +1,265 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#100609">
+<title>Querida azuul</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 25px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Georgia, serif;
+  color: #fff0f2;
+  background:
+    radial-gradient(circle at top, #50101e 0%, transparent 50%),
+    linear-gradient(145deg, #090909, #1b080d 65%, #310813);
+  overflow-x: hidden;
+}
+
+.heart {
+  position: fixed;
+  color: #e63959;
+  opacity: .22;
+  animation: float 7s infinite ease-in-out;
+  pointer-events: none;
+}
+
+.heart:nth-child(1) {
+  left: 8%;
+  top: 15%;
+  font-size: 28px;
+}
+
+.heart:nth-child(2) {
+  right: 10%;
+  top: 30%;
+  font-size: 40px;
+  animation-delay: 2s;
+}
+
+.heart:nth-child(3) {
+  left: 15%;
+  bottom: 12%;
+  font-size: 35px;
+  animation-delay: 3s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-22px) rotate(12deg); }
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  padding: 30px 23px;
+  border: 1px solid #a52a42;
+  border-radius: 24px;
+  background: rgba(15, 8, 10, .94);
+  box-shadow: 0 0 35px #a51e3b35;
+  position: relative;
+  z-index: 1;
+}
+
+.small {
+  color: #e8a0ad;
+  letter-spacing: 3px;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+h1 {
+  color: #ff718b;
+  font-size: 30px;
+  margin: 15px 0;
+}
+
+p {
+  line-height: 1.7;
+  color: #f2dce1;
+}
+
+.heart-big {
+  font-size: 48px;
+  margin: 10px;
+  animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+  50% { transform: scale(1.13); }
+}
+
+button {
+  font-family: inherit;
+  font-size: 16px;
+  padding: 13px 20px;
+  border-radius: 30px;
+  border: 1px solid #d94b67;
+  cursor: pointer;
+  margin: 7px 4px;
+  transition: .3s;
+}
+
+.primary {
+  background: #b51f3e;
+  color: white;
+}
+
+.secondary {
+  background: transparent;
+  color: #ffc0cb;
+}
+
+button:active {
+  transform: scale(.96);
+}
+
+.letter {
+  background: #1c0c11;
+  border: 1px solid #8d263e;
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 22px;
+  text-align: left;
+  display: none;
+  animation: appear .7s ease;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.signature {
+  text-align: right;
+  color: #ff8299;
+  font-style: italic;
+}
+
+#surprise {
+  display: none;
+  margin-top: 25px;
+  animation: appear .8s ease;
+}
+
+#answer {
+  color: #ff9bad;
+  font-size: 19px;
+  font-weight: bold;
+  margin-top: 18px;
+}
+
+.line {
+  width: 65px;
+  height: 2px;
+  background: #b51f3e;
+  margin: 20px auto;
+}
+</style>
+</head>
+
+<body>
+
+<div class="heart">♥</div>
+<div class="heart">♥</div>
+<div class="heart">♥</div>
+
+<main class="card">
+
+  <section id="cover">
+    <div class="heart-big">❤️</div>
+    <h1>Carta para Azuul</h1>
+    <button class="primary" onclick="enterCard()">Entrar 💌</button>
+  </section>
+
+  <section id="message" style="display:none">
+    <div class="small">Una pequeña sorpresa para ti</div>
+    <div class="heart-big">❤️</div>
+    <h1>Holaaa, mi chinitalinda</h1>
+    <p>
+      Preparé algo para ti. 
+      quería decirte desde hace tiempo.
+    </p>
+    <div class="line"></div>
+
+    <section class="letter" style="display:block">
+      <p>Hola:</p>
+      <p>
+        Quería encontrar una manera especial de decirte
+        algo que he pensadoy q me he tardadoun poquito.
+      </p>
+      <p>
+        Me gusta pasar tiempo contigo, conocerte cada día
+        un poquito más y saber q tengo a la mujer mas linda del mundo conmigo.
+      </p>
+      <p>
+        No sé qué nos tenga preparado el futuro,
+        pero sí sé que me gustaría descubrirlo contigo equivocarme , regarla y perderme contigo.
+      </p>
+      <p>
+        Por eso preparé esta pequeña sorpresa.
+        No quiero q piensesq estoy loco, solamente quiero decirte algo
+        y decirte lo que siento.
+      </p>
+      <p class="signature">Con cariño yio ❤️</p>
+    </section>
+
+    <button class="primary" onclick="showQuestion()">Siguiente ✨</button>
+  </section>
+
+  <section id="surprise" style="display:none">
+    <div class="heart-big">❤️</div>
+    <h1>Hay algo que quiero preguntarte...</h1>
+    <p style="font-size:21px">¿puedo ser tu novio?</p>
+    <button class="primary" onclick="answerYes()">Sí, azaaaa ❤️</button>
+    <button class="secondary" onclick="answerTalk()">No , tas muy feo chavo</button>
+    <div id="answer"></div>
+  </section>
+
+  <p class="small" style="margin-top:25px">
+    Hecho con cariño, especialmente para ti.
+  </p>
+
+</main>
+
+<script>
+function enterCard() {
+  document.getElementById("cover").style.display = "none";
+  document.getElementById("message").style.display = "block";
+}
+
+function showQuestion() {
+  document.getElementById("message").style.display = "none";
+  document.getElementById("surprise").style.display = "block";
+  document.getElementById("surprise").scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+}
+
+function answerYes() {
+  document.getElementById("answer").innerHTML =
+    "¡Teeee amoooooooooooooooooooooooooo muchísimomi chinita linda! ❤️";
+}
+
+function answerTalk() {
+  document.getElementById("answer").innerHTML =
+    "Como q no azuul a ver dale otra vez amor . 💗";
+}
+</script>
+
+</body>
+</html>
